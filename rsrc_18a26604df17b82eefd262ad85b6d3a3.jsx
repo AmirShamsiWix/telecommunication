@@ -1,0 +1,1 @@
+$(document).ready(function(){if(window.location.href.endsWith("#mywifi-xtreme")||window.location.href.endsWith("#mywifi-xtreme/")){window.scrollBy(0,-100)}});

@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#toggle-benefits-area").on("click",function(a){a.preventDefault();$("#myWifi-modal-btn").click()})});

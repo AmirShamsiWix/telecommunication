@@ -1,0 +1,1 @@
+wow=new WOW({boxClass:"anim"});wow.init();

@@ -1,0 +1,1 @@
+$(document).ready(function(){var b=window.location.pathname.split("/");var a="/"+b[1];$("#support-main-nav .support-buttons a").each(function(){var c=$(this).attr("href").split("/");var d="/"+c[1];if(d==a){$(this).parent().addClass("active")}})});

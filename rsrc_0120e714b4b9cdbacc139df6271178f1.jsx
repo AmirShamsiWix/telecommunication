@@ -1,0 +1,1 @@
+$(document).ready(function(){var a=window.location.href;if(a.charAt(a.length-1)==="#"){setTimeout(function(){document.getElementById("home2go").click()},2000)}$(".fancybox-media").attr("rel","media-gallery").fancybox({openEffect:"none",closeEffect:"none",prevEffect:"none",nextEffect:"none",arrows:false,helpers:{media:{},buttons:{}}})});

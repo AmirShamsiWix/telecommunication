@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".slider").slick({slidesToShow:1,dots:true,appendDots:".dots-here",arrows:true,autoplay:true,autoplaySpeed:30000,responsive:[{breakpoint:1200,settings:{slidesToShow:1,dots:true,arrows:true}}]});$("#slider-section ul.slick-dots li button").text("")});

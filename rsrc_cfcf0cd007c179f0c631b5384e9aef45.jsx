@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".compass_link").fancybox({type:"iframe",openEffect:"elastic",closeEffect:"elastic",helpers:{title:null,overlay:{speedIn:600,speedOut:200}},scrolling:"no",padding:0,width:650})});

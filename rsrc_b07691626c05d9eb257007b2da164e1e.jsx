@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#open-wifi-modal").click();$("#wifi-modal").on("hidden.bs.modal",function(a){$("html, body").animate({scrollTop:$("#secure-monitoring").offset().top-140},1000)})});

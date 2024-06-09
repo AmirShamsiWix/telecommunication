@@ -1,0 +1,1 @@
+$(document).ready(function(){var a=$(":target").offset();var b=a.top-200;$("html, body").animate({scrollTop:b},0)});

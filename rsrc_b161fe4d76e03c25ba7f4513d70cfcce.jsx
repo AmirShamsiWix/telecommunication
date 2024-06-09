@@ -1,0 +1,1 @@
+function gtag_report_conversion(b){var a=function(){if(typeof(b)!="undefined"){window.location=b}};gtag("event","conversion",{send_to:"AW-975628795/fI7ICIGkgMsYEPvTm9ED",event_callback:a});return false};
