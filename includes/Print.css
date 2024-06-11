@@ -1,12 +1,10 @@
-body
-{
-    visibility:hidden;
+body {
+    visibility: hidden;
 }
 
-.PrintFriendly
-{
-    visibility:visible;
-    position:absolute;
-    left:20px;
-    top:20px;
+.PrintFriendly {
+    visibility: visible;
+    position: absolute;
+    left: 20px;
+    top: 20px;
 }

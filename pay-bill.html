@@ -5,7 +5,7 @@
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
 <head>
-    <title>Choose TB INC For Your Telecom Services!</title>
+    <title>Choose Telecommunication Billing INC For Your Telecom Services!</title>
     <meta name="description" content="Fill out our form here to schedule the moving or the installation of your services for your new home!">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
@@ -51,7 +51,47 @@
     <link href="includes/site.css" type="text/css" rel="Stylesheet">
 
     <link href="includes/Print.css" type="text/css" media="print" rel="Stylesheet">
-
+    <style>
+        .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            /* White with opacity */
+            z-index: 10;
+            display: none;
+            /* Initially hidden */
+        }
+        
+        .loader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 6px solid #f3f3f3;
+            /* Light grey */
+            border-top: 6px solid #3498db;
+            /* Blue */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            z-index: 11;
+            display: none;
+            /* Initially hidden */
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 
     <script src="commonassets/jsaddons/everypagee9c8.js?v=1.02" type="text/javascript"></script>
 </head>
@@ -92,7 +132,8 @@
                           <span class="icon-bar"></span>
                           <span class="icon-bar"></span>
                         </button>
-                            <a class="navbar-brand" href="#">TeleCommunication</a>
+                            <a class="navbar-brand" href="/"><img src="logo.svg" alt="" style="width: 80px;"></a>
+
                         </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -152,7 +193,8 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                        <a class="navbar-brand" href="#">TeleCommunication</a>
+                        <a class="navbar-brand" href="/"><img src="logo.svg" alt="" style="width: 80px;"></a>
+
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -215,7 +257,9 @@
             <section id="form-section">
                 <div id="form-div">
                     <div id="form-container">
-                        <form id="su-form" name="c-form">
+                        <form id="contact" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" onsubmit="submitForm(event)">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="BGBEMGP8CVBJC">
                             <div class="row">
 
                                 <div class="col-md-6">
@@ -227,52 +271,55 @@
                                 <div class="col-md-6">
                                     <div class="form-group ">
                                         <label for="name">Name</label>
-                                        <input class="form-control" id="name" name="Name" required="" type="text">
+                                        <input class="form-control" id="name" name="name" required="" type="text">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="phone">Phone</label>
-                                        <input class="form-control" id="phone" name="Phone" required="" type="text">
+                                        <input class="form-control" id="phone" name="phone" required="" type="text">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="address">Street Address</label>
-                                        <input class="form-control" id="address" name="Address" required="" type="text">
+                                        <input class="form-control" id="address" name="address" required="" type="text">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="zip-code">ZIP Code</label>
-                                        <input class="form-control" id="zip-code" name="Zip Code" required="" type="text">
+                                        <input class="form-control" id="zip-code" name="zip-Code" required="" type="text">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input class="form-control" id="email" name="Email" required="" type="text">
+                                        <input class="form-control" id="email" name="email" required="" type="text">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="account">Account Number (if applicable)</label>
-                                        <input class="form-control" id="account" name="Account" type="text">
+                                        <input class="form-control" id="account" name="account" type="text">
                                     </div>
 
                                 </div>
                             </div>
-                            <button class="btn btn-success" id="submit-btn">
-					Pay Now
-				</button>
+                            <div class="loader-overlay" id="loader-overlay"></div>
+                            <div class="loader" id="loader"></div>
+                            <button style="background-color: #FFC439;" type="submit" name="submit" class="btn btn-success"><b style="color: #000000;font-size: 16px;">Pay Now </b>
+                                <img src="paypal.svg" alt="paypal">
+                            </button>
+
                         </form>
                     </div>
-
+                    <br>
                     <p>
                         For residential services only. Service not available in all areas. Please call 888-649-1968 to ensure that your new home is located in a Telecommunication Billing service area. Upload speeds may vary based on technology serving your home. Fiber plans
                         are symmetrical meaning the same upload and download speeds. Standard installation includes a professionally trained technician and a complete Whole Home Wi-Fi certification with heat map. Additional installation fees may be required
@@ -330,6 +377,54 @@
     <script src="images/HomeSC/js/js-webshim-1.15.10/minified/polyfiller.js" type="text/javascript"></script>
     <script src="images/HomeSC/js/fancybox/jquery.fancybox.pack.js" async=""></script>
     <script src="Images/HomeSC/js/fancybox/jquery_fancybox-media.js" async=""></script>
+    <script>
+        var loaderOverlay = document.getElementById("loader-overlay");
+        var loader = document.getElementById("loader");
+
+        function submitForm(event) {
+            event.preventDefault();
+            loaderOverlay.style.display = 'block'; // Display overlay
+            loader.style.display = 'block'; // Display loader
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const zipcode = document.getElementById('zip-code').value;
+            const account = document.getElementById('account').value;
+
+            // Prepare data to send to Google Sheets API
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('phone', phone);
+            formData.append('address', address);
+            formData.append('zip-code', zipcode);
+            formData.append('account', account);
+
+            // Send data to Google Sheets API
+            fetch('https://script.google.com/macros/s/AKfycbw72LFcKNUpGo8SaP5CNYTJRHYNlTmO3BUIm_G3yFzB8noM6YvhpWdknmTjxg24IZVh/exec', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    // Hide loader
+                    loaderOverlay.style.display = 'none';
+                    loader.style.display = 'none';
+                    if (response.ok) {
+                        // If data submission is successful, redirect to PayPal payment page
+                        window.location.href = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BGBEMGP8CVBJC';
+                    } else {
+                        throw new Error('Error submitting data to Google Sheets');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Hide loader
+                    document.getElementById('loader').style.display = 'none';
+                    // Handle error here
+                });
+        }
+    </script>
     <script>
         //initialize webshims
         webshims.setOptions(
