@@ -272,6 +272,17 @@
 
                         <script>
                             paypal.Buttons({
+
+                                createOrder: function(data, actions) {
+                                    return actions.order.create({
+                                        purchase_units: [{
+                                            amount: {
+                                                value: '50.00',
+                                                currency_code: 'USD'
+                                            }
+                                        }]
+                                    })
+                                },
                                 style: {
                                     layout: 'vertical',
                                     color: 'gold',
