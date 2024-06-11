@@ -60,6 +60,47 @@
 
     <link href="includes/Print.css" type="text/css" media="print" rel="Stylesheet">
     <script src="commonassets/jsaddons/everypagee9c8.js?v=1.02" type="text/javascript"></script>
+    <style>
+        .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            /* White with opacity */
+            z-index: 10;
+            display: none;
+            /* Initially hidden */
+        }
+        
+        .loader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 6px solid #f3f3f3;
+            /* Light grey */
+            border-top: 6px solid #3498db;
+            /* Blue */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            z-index: 11;
+            display: none;
+            /* Initially hidden */
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body id="HtmlBody">
@@ -257,59 +298,7 @@
                         </div>
                     </div>
                 </section>
-                <!--<section class="chargeSec boxDiv ">
-<div class="row ">
-<div class="col-md-4">
-&nbsp;
-</div>
 
-<div class="boxSpace">
-<div class="col-md-8">
-<h2>
-TAKE CHARGE OF YOUR HOME WI-FI NETWORK
-</h2>
-
-<h4>
-MyWiFi Xtreme is an Android &amp; Apple App that puts you in control of your whole home network
-</h4>
-</div>
-
-<div class="col-md-12">
-<img alt="green line" id="gLine2" src="/Images/HomeSC/2021/MyWiFi/green_line_v3.png" />
-</div>
-</div>
-</div>
-
-<div class="row chargeRow">
-<div class="col-md-3">
-<img alt="woman looking at tablet" src="/Images/HomeSC/2021/MyWiFi/woman_on_tablet_circle_v2.png" />
-<p>
-Reset your Wi-Fi network name or password without making a call for tech support.
-</p>
-</div>
-
-<div class="col-md-3">
-<img alt="child looking at tablet" src="/Images/HomeSC/2021/MyWiFi/child_looking_at_tablet_circle_v2.png" />
-<p>
-Create healthy habits for screen time by establishing routines and scheduling downtime.
-</p>
-</div>
-
-<div class="col-md-3">
-<img alt="father and son checking thermostat" src="/Images/HomeSC/2021/MyWiFi/parents_with_themosat_circle_v2.png" />
-<p>
-Keep your personal network information private by creating a separate network for guests.
-</p>
-</div>
-
-<div class="col-md-3">
-<img alt="happy guy playing video games" src="/Images/HomeSC/2021/MyWiFi/guy_playing_video_games_circle_v2.png" />
-<p>
-See all devices connected at any time and get alerts whenever a new device is connected.
-</p>
-</div>
-</div>
-</section>-->
             </div>
 
             <div class="gutterDiv">
@@ -327,7 +316,6 @@ See all devices connected at any time and get alerts whenever a new device is co
                             </div>
 
                             <div class="col-md-3 phone-img">
-                                <!--<img alt="purple lock graphic" class="disImg" src="/Images/HomeSC/2021/MyWiFi/purple_lock_graphic_v2.png" />--><img alt="" class="disImg" src="Images/HomeSC/2021/MyWiFi/phone_with_filters_screen_v9.png">
                             </div>
                         </div>
 
@@ -436,44 +424,7 @@ See all devices connected at any time and get alerts whenever a new device is co
                             </div>
                         </div>
                     </section>
-                    <!--<section class="bottomBg">
-<section class="experience">
-<div class="row">
-<div class="col-md-7">
-<img alt="green line" src="/Images/HomeSC/2021/MyWiFi/top_rule_v2.png" style="margin-top:50px;" />
-<h2>
-SET RULES AND WE WILL ENFORCE THEM WITH PARENTAL CONTROLS
-</h2>
-<img alt="green line" src="/Images/HomeSC/2021/MyWiFi/top_rule_v2.png" /> 
-<p id="etext">
-MyWiFi Xtreme gives you control and peace of mind knowing that you can manage and limit access to content you feel is inappropriate for certain family members.
-</p>
 
-<ul>
-<li>
-Set <strong>FILTERS</strong> for specific categories of content, applications, and/or websites!
-</li>
-<li>
-Create <strong>PROFILES</strong> for your children&#39;s devices to ensure they are not playing when they should be doing homework!
-</li>
-<li>
-Easily set and adjust <strong>TIME LIMITS</strong> for specific applications to help enforce the online rules you&#39;ve set up in your home! No more playing a certain game for half the night!
-</li>
-</ul>
-<div>
-<a class="my-wifi-bttn" href="https://www.homesc.com/mywifi-xtreme-faqs" title="MyWiFi Xtreme FAQs">MyWiFi Xtreme FAQs 
-<span class="fa fa-angle-double-right">
-
-</span></a>
-</div>
-</div>
-
-<div class="col-md-5">
-<img alt="phone with settings open" src="/Images/HomeSC/2021/MyWiFi/phone_with_filters_screen_v7.png" />
-</div>
-</div>
-</section>
-</section>-->
                 </div>
             </div>
 
@@ -509,20 +460,18 @@ Easily set and adjust <strong>TIME LIMITS</strong> for specific applications to 
 
             <section class="formSection" id="signup_form">
                 <div id="form-div">
-                    <div class="formtitle">
+                    <div class="formtitle" id="title">
                         Sign Up for MyWiFi Xtreme Now!
                     </div>
-
+                    <div class="formtitle" id="submission-success" style="display: none;">
+                        Thanks For your submission will get back to you soon!!!
+                    </div>
                     <div id="form-container">
-                        <form action="#" id="su-form" method="" name="c-form">
+                        <form id="my-form" method="post" action="https://script.google.com/macros/s/AKfycbwdbXb8hb9bWnNyfmSU6bVGm8DSjfsWOSAa_RC7LuYva7ZbUdwSUAq-NeGe5RpLqDhP/exec" class="cta-form gform">
                             <div class="row upPadding">
-                                <div class="col-md-6 hidden">
-                                    <input checked="checked" id="mywifi-xtreme" name="MyWiFi Xtreme" onclick="wifiDisable()" type="checkbox"> <strong>Add MyWiFi Xtreme: $9.95/month</strong>
-                                </div>
 
-                                <div class="col-md-6 hidden">
-                                    <input id="protect-iq" name="ExperienceIQ" type="checkbox"> <strong>PLUS: $4.95/mo</strong>
-                                </div>
+                                <input name="Form Name" value="My Wifi Xtreme Form" hidden>
+
                             </div>
 
                             <div class="row">
@@ -572,8 +521,10 @@ Easily set and adjust <strong>TIME LIMITS</strong> for specific applications to 
 					Submit
 				</button>
                         </form>
-
-                        <p>
+                        <div class="step-description" id="my-form-status"></div>
+                        <div class="loader-overlay" id="loader-overlay"></div>
+                        <div class="loader" id="loader"></div>
+                        <p id="msg">
                             <br>
                             <br>
                             <br> *For residential customers only. Must be a high speed internet subscriber. Homes of certain square footage and/or design may require the optional addition of a mesh unit at the cost of $2.95 per month. The wireless connection
@@ -634,6 +585,43 @@ Easily set and adjust <strong>TIME LIMITS</strong> for specific applications to 
     <script src="images/HomeSC/js/fancybox/jquery.fancybox.pack.js" async=""></script>
     <script src="Images/HomeSC/js/fancybox/jquery_fancybox-media.js" async=""></script>
 
+    <script>
+        var form = document.getElementById("my-form");
+        var loaderOverlay = document.getElementById("loader-overlay");
+        var loader = document.getElementById("loader");
+        var msg = document.getElementById("msg");
+
+        var title = document.getElementById("title");
+        var submissionMessage = document.getElementById("submission-success");
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            var status = document.getElementById("my-form-status");
+            loaderOverlay.style.display = 'block'; // Display overlay
+            loader.style.display = 'block'; // Display loader
+            var data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                loaderOverlay.style.display = 'none';
+                loader.style.display = 'none';
+                status.style.display = 'block';
+                form.style.display = 'none';
+                msg.style.display = 'none';
+                title.style.display = 'none';
+                submissionMessage.style.display = 'block'; // Show submission message
+            }).catch(error => {
+                status.style.display = 'block';
+                form.style.display = 'none';
+                status.innerHTML = "Oops! Something went wrong.";
+            });
+        }
+        form.addEventListener("submit", handleSubmit);
+    </script>
     <script>
         //initialize webshims
         webshims.setOptions(
@@ -755,7 +743,6 @@ Easily set and adjust <strong>TIME LIMITS</strong> for specific applications to 
             });
         });
     </script>
-
 </body>
 
 
