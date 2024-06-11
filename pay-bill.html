@@ -271,7 +271,15 @@
                         <div id="paypal-button-container"></div>
 
                         <script>
-                            paypal.Buttons().render('#paypal-button-container')
+                            paypal.Buttons({
+                                style: {
+                                    layout: 'vertical',
+                                    color: 'gold',
+                                    shape: 'pill',
+                                    label: 'paypal',
+                                    disableMaxWidth: true
+                                }
+                            }).render('#paypal-button-container');
                         </script>
                     </div>
                     <br>
