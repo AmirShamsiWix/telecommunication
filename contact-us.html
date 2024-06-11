@@ -131,6 +131,11 @@
 
 
                             <li><a href="contact-us.html">Contact</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="tel:+18886491968">
+                                    <i class="fa fa-phone"></i> +1 (888) 649-1968
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -154,7 +159,7 @@
             <section id="form-section">
                 <div id="form-div">
                     <div id="form-container">
-                        <form>
+                        <form id="my-form">
                             <div class="row">
 
                                 <div class="col-md-6">
@@ -197,6 +202,9 @@
 					Submit
 				</button>
                         </form>
+                        <h1 class="text-center" id="my-form-status"></h1>
+                        <div class="loader-overlay " id="loader-overlay "></div>
+                        <div class="loader " id="loader "></div>
                     </div>
 
                     <p>
@@ -205,44 +213,45 @@
                         and will be discussed at time of install. Certain restrictions may apply.
                     </p>
                 </div>
+
             </section>
         </div>
     </main>
 
-    <section id="subfooter">
-        <div class="col-md-6">
+    <section id="subfooter ">
+        <div class="col-md-6 ">
             <ul>
                 <li>
-                    <a href="contact-us.html" title="Contact Us">Contact Us</a>
+                    <a href="contact-us.html " title="Contact Us ">Contact Us</a>
                 </li>
                 <li>
-                    <a href="internet.html" title="Internet Plans">Internet</a>
+                    <a href="internet.html " title="Internet Plans ">Internet</a>
                 </li>
                 <li>
-                    <a href="homestream-tv.html" title="Video">Video</a>
+                    <a href="homestream-tv.html " title="Video ">Video</a>
                 </li>
                 <li>
-                    <a href="calling-features.html" title="Voice">Voice</a>
+                    <a href="calling-features.html " title="Voice ">Voice</a>
                 </li>
             </ul>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <hr class="bg-white">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-xs-12 ">
+                    <hr class="bg-white ">
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-12 ">
                     <ul>
 
                         <li>
-                            <a href="website-terms-of-use.html" title="Website Terms of Use">Website Terms of Use</a>
+                            <a href="website-terms-of-use.html " title="Website Terms of Use ">Website Terms of Use</a>
                         </li>
                         <li>
-                            <a href="privacy-policy.html" title="Privacy Policy">Privacy Policy</a>
+                            <a href="privacy-policy.html " title="Privacy Policy ">Privacy Policy</a>
                         </li>
                         <li>
-                            <a href="terms-and-conditions.html" title="Terms and Conditions">Terms and Conditions</a>
+                            <a href="terms-and-conditions.html " title="Terms and Conditions ">Terms and Conditions</a>
                         </li>
                     </ul>
                 </div>
@@ -250,131 +259,114 @@
         </div>
     </section>
 
-    <script src="Images/Site/animate/css3-animate-it.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="images/HomeSC/js/sidr.js"></script>
-    <script src="images/HomeSC/js/js-webshim-1.15.10/minified/polyfiller.js" type="text/javascript"></script>
-    <script src="images/HomeSC/js/fancybox/jquery.fancybox.pack.js" async=""></script>
-    <script src="Images/HomeSC/js/fancybox/jquery_fancybox-media.js" async=""></script>
+    <script src="Images/Site/animate/css3-animate-it.js "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js " integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS " crossorigin="anonymous "></script>
+    <script type="text/javascript " src="images/HomeSC/js/sidr.js "></script>
+    <script src="images/HomeSC/js/js-webshim-1.15.10/minified/polyfiller.js " type="text/javascript "></script>
+    <script src="images/HomeSC/js/fancybox/jquery.fancybox.pack.js " async=" "></script>
+    <script src="Images/HomeSC/js/fancybox/jquery_fancybox-media.js " async=" "></script>
+    <script src="script.js"></script>
     <script>
         //initialize webshims
         webshims.setOptions(
-            "basePath",
-            "images/HomeSC/js/js-webshim-1.15.10/minified/shims/index.html"
+            "basePath ",
+            "images/HomeSC/js/js-webshim-1.15.10/minified/shims/index.html "
         );
 
-        webshims.setOptions("forms", {
+        webshims.setOptions("forms ", {
             addValidators: true
         });
 
-        webshims.polyfill("forms");
+        webshims.polyfill("forms ");
 
         $(function() {
-            // Show/hide search form /z
-            $(".search a").click(function(e) {
-                e.preventDefault();
-                $(".search-inputs").toggle();
-            });
+        // Show/hide search form /z
+        $(".search a ").click(function(e) {
+            e.preventDefault();
+            $(".search-inputs ").toggle();
+        });
 
-            $("form.template-search").submit(function(e) {
-                e.preventDefault();
-                let searchTerm = $(this).find('.txt-search').val();
-                searchTerm = searchTerm.replace(/ /g, '-');
+        $("form.template-search ").submit(function(e) {
+            e.preventDefault();
+            let searchTerm = $(this).find('.txt-search').val();
+            searchTerm = searchTerm.replace(/ /g, '-');
 
-                location.href = "/search?item=" + searchTerm;
-            });
+            location.href = "/search?item=" + searchTerm;
+        });
 
-            if (document.documentElement.clientWidth < 769) {
-                $(".binfo").hide();
-                var allPanels = $(".btitle").next("div");
+        if (document.documentElement.clientWidth < 769) {
+            $(" .binfo ").hide();
+            var allPanels = $(".btitle ").next("div ");
 
-                $(".btitle").click(function() {
-                    $this = $(this);
-                    $target = $this.next("div");
-                    $(".btitle").removeClass("minus");
-                    if ($target.is(":hidden")) {
-                        allPanels.not(this).slideUp();
-                        $target.slideDown();
-                        $(this).addClass("minus");
-                    } else {
-                        allPanels.not(this).slideUp();
-                        $target.slideUp();
-                        $(".btitle").removeClass("minus");
-                    }
-                    return false;
-                });
-            }
-
-
-            // In-page navigation
-            var like = $("aside > ul").attr("class");
-            like = "/" + like;
-            like = like.replace(".html", "");
-            $("a", $("aside")).each(function() {
-                var also_like = $(this).attr("href");
-                if (like == also_like) {
-                    $(this)
-                        .parent("li")
-                        .addClass("current");
-                } else {}
-            });
-
-
-            //Search
-            $("form.template-search").submit(function(e) {
-                e.preventDefault
-
-                let searchTerm = $(this).find('.txt-search').val();
-                searchTerm = searchTerm.replace(/ /g, '-');
-
-                location.href = "/search?item=" + searchTerm;
-            });
-
-            // Captcha badness / Newsletter unsubscribe
-            if ($("#pnlCaptcha, #divNotDone").length >= 1) {
-                $(".PrintFriendly").wrapInner(
-                    '<div class="container" id="content"><div class="row"><div class="col-sm-10 col-sm-offset-1"></div></div></div>'
-                );
-            } else if ($('a[href="/Retrieve.aspx"]').length >= 1) {
-                $(".PrintFriendly")
-                    .html("")
-                    .prepend(
-                        '<div class="pageBottom" id="content">\n' +
-                        '<div class="container">\n' +
-                        '<div class="row"\n>' +
-                        '<div class="col-sm-8 col-sm-offset-2 text-center">\n' +
-                        '<h1 class="page-header">\n' +
-                        "Thanks for signing up!\n" +
-                        "</h1>\n" +
-                        '<p class="lead">\n' +
-                        "Look for Telecommunication Billing emails to come with our latest news!\n" +
-                        "</p>\n" +
-                        "</div>\n" +
-                        "</div>\n" +
-                        "</div>\n" +
-                        "</div>\n"
-                    );
-            } else {}
-
-            //Flipper
-            $(".js-fancy.iframe").fancybox({
-                type: "iframe",
-                openEffect: "elastic",
-                closeEffect: "elastic",
-                helpers: {
-                    title: null,
-                    overlay: {
-                        speedIn: 600,
-                        speedOut: 200
-                    }
-                },
-                scrolling: "yes",
-                width: "80%",
-                height: 750,
-                iframe: {
-                    preload: false
+            $(".btitle ").click(function() {
+                $this = $(this);
+                $target = $this.next("div ");
+                $(".btitle ").removeClass("minus ");
+                if ($target.is(":hidden ")) {
+                    allPanels.not(this).slideUp();
+                    $target.slideDown();
+                    $(this).addClass("minus ");
+                } else {
+                    allPanels.not(this).slideUp();
+                    $target.slideUp();
+                    $(".btitle ").removeClass("minus ");
                 }
+                return false;
             });
+        }
+
+
+        // In-page navigation
+        var like = $("aside> ul").attr("class");
+        like = "/" + like;
+        like = like.replace(".html", "");
+        $("a", $("aside")).each(function() {
+            var also_like = $(this).attr("href");
+            if (like == also_like) {
+                $(this).parent("li").addClass("current");
+            } else {}
+        }); //Search $("form.template-search").submit(function(e) { e.preventDefault let searchTerm = $(this).find('.txt-search').val(); searchTerm = searchTerm.replace(/ /g, '-'); location.href = "/search?item=" + searchTerm; });
+        // Captcha badness / Newsletter unsubscribe if ($("#pnlCaptcha, #divNotDone").length >= 1) { $(".PrintFriendly").wrapInner( '
+        <
+        div class = "container"
+        id = "content" >
+            <
+            div class = "row" >
+            <
+            div class = "col-sm-10 col-sm-offset-1" > < /div> < /
+        div > <
+            /div>' ); } else if ($('a[href="/Retrieve.aspx"]').length >= 1) { $(".PrintFriendly") .html("") .prepend( ' <
+        div class = "pageBottom"
+        id = "content" > \n ' + ' <
+            div class = "container" > \n ' + ' <
+            div class = "row"\
+        n > ' + ' <
+            div class = "col-sm-8 col-sm-offset-2 text-center" > \n ' + ' <
+            h1 class = "page-header" > \n ' + "Thanks for signing up!\n" + " < /
+        h1 > \n " + ' <
+        p class = "lead" > \n ' + "Look for Telecommunication Billing emails to come with our latest news!\n" + " < /
+        p > \n " + " <
+            /div>\n" + " < /
+        div > \n " + " <
+            /div>\n" + " < /
+        div > \n " ); } else {} / / Flipper $(".js - fancy.iframe ").fancybox({
+        type: "iframe",
+            openEffect: "elastic",
+            closeEffect: "elastic",
+            helpers: {
+                title: null,
+                overlay: {
+                    speedIn: 600,
+                    speedOut: 200
+                }
+            },
+            scrolling: "yes",
+            width: "80%",
+            height: 750,
+            iframe: {
+                preload: false
+            }
+        });
         });
     </script>
 </body>
