@@ -268,20 +268,47 @@
             <section id="form-section">
                 <div id="form-div">
                     <div id="container">
+                        <div class="h2 big-green-text text-center" id="message-container"></div>
+                        <div class="col-md-12">
+                            <div class="form-group ">
+                                <label for="Amount">Amount*</label>
+                                <input class="form-control" id="payment-amount" placeholder="Enter Payment Amount in USD $" name="Amount" required="" type="number" min="1" step="1">
+                            </div>
+                        </div>
                         <div id="paypal-button-container"></div>
 
                         <script>
+                            function displayMessage(message) {
+                                const messageContainer = document.getElementById('message-container');
+                                messageContainer.innerText = `${message}`;
+                            }
+
+
                             paypal.Buttons({
 
+
                                 createOrder: function(data, actions) {
+                                    const amount = document.getElementById('payment-amount').value;
+                                    if (!amount || amount <= 0) {
+                                        displayMessage("Please enter a valid amount");
+                                        return;
+                                    }
                                     return actions.order.create({
                                         purchase_units: [{
                                             amount: {
-                                                value: '50.00',
+                                                value: amount,
                                                 currency_code: 'USD'
                                             }
                                         }]
                                     })
+                                },
+                                onApprove: function(data, actions) {
+                                    return actions.order.capture().then(function(details) {
+                                        displayMessage('Payment completed by ' + details.payer.name.given_name);
+                                    })
+                                },
+                                oncancel: function(err) {
+                                    displayMessage('Oops!!! An error occured during the transaction: ' + err.message);
                                 },
                                 style: {
                                     layout: 'vertical',
